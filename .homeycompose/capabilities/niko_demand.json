@@ -1,0 +1,12 @@
+{
+  "type": "enum",
+  "title": { "en": "Demand", "nl": "Vraag", "da": "Behov" },
+  "uiComponent": "sensor",
+  "getable": true,
+  "setable": false,
+  "values": [
+    { "id": "Heating", "title": { "en": "Heating", "nl": "Verwarmen", "da": "Varmer" } },
+    { "id": "Cooling", "title": { "en": "Cooling", "nl": "Koelen", "da": "Køler" } },
+    { "id": "None", "title": { "en": "Idle", "nl": "Inactief", "da": "Hviler" } }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": { "en": "Audio Zone", "nl": "Audiozone", "da": "Lydzone" },
+  "class": "speaker",
+  "capabilities": ["speaker_playing", "volume_set", "volume_mute", "speaker_next", "speaker_prev", "speaker_track", "speaker_artist"],
+  "platforms": ["local"],
+  "connectivity": ["lan"],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    { "id": "list_devices", "template": "list_devices", "navigation": { "next": "add_devices" } },
+    { "id": "add_devices", "template": "add_devices" }
+  ]
+}

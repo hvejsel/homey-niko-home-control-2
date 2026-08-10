@@ -46,6 +46,158 @@
   "drivers": [
     {
       "name": {
+        "en": "Access Control",
+        "nl": "Toegangscontrole",
+        "da": "Adgangskontrol"
+      },
+      "class": "lock",
+      "capabilities": [
+        "locked",
+        "alarm_generic"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/access-control/assets/images/small.png",
+        "large": "/drivers/access-control/assets/images/large.png",
+        "xlarge": "/drivers/access-control/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "access-control"
+    },
+    {
+      "name": {
+        "en": "Alarm",
+        "nl": "Alarm",
+        "da": "Alarm"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff",
+        "alarm_generic"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/alarm/assets/images/small.png",
+        "large": "/drivers/alarm/assets/images/large.png",
+        "xlarge": "/drivers/alarm/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "alarm"
+    },
+    {
+      "name": {
+        "en": "Audio Zone",
+        "nl": "Audiozone",
+        "da": "Lydzone"
+      },
+      "class": "speaker",
+      "capabilities": [
+        "speaker_playing",
+        "volume_set",
+        "volume_mute",
+        "speaker_next",
+        "speaker_prev",
+        "speaker_track",
+        "speaker_artist"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/audio/assets/images/small.png",
+        "large": "/drivers/audio/assets/images/large.png",
+        "xlarge": "/drivers/audio/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "audio"
+    },
+    {
+      "name": {
+        "en": "Action",
+        "nl": "Actie",
+        "da": "Handling"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/basic-action/assets/images/small.png",
+        "large": "/drivers/basic-action/assets/images/large.png",
+        "xlarge": "/drivers/basic-action/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "basic-action"
+    },
+    {
+      "name": {
         "en": "Comfort sensor single button",
         "nl": "Comfort sensor enkele knop"
       },
@@ -332,6 +484,61 @@
     },
     {
       "name": {
+        "en": "Energy Home",
+        "nl": "Energie",
+        "da": "Energi"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_power",
+        "meter_power",
+        "meter_power.produced",
+        "meter_power.returned",
+        "meter_gas",
+        "meter_water"
+      ],
+      "capabilitiesOptions": {
+        "meter_power.produced": {
+          "title": {
+            "en": "Production",
+            "da": "Produktion"
+          }
+        },
+        "meter_power.returned": {
+          "title": {
+            "en": "Returned to grid",
+            "da": "Leveret til nettet"
+          }
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/energy-home/assets/images/small.png",
+        "large": "/drivers/energy-home/assets/images/large.png",
+        "xlarge": "/drivers/energy-home/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "energy-home"
+    },
+    {
+      "name": {
         "en": "Ventilation Module",
         "nl": "Ventilatiemodule"
       },
@@ -398,6 +605,42 @@
         }
       ],
       "id": "fan"
+    },
+    {
+      "name": {
+        "en": "Flag",
+        "nl": "Vlag",
+        "da": "Flag"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/flag/assets/images/small.png",
+        "large": "/drivers/flag/assets/images/large.png",
+        "xlarge": "/drivers/flag/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "flag"
     },
     {
       "name": {
@@ -539,6 +782,165 @@
         }
       ],
       "id": "routine-mood"
+    },
+    {
+      "name": {
+        "en": "Thermostat",
+        "nl": "Thermostaat",
+        "da": "Termostat"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "measure_temperature",
+        "target_temperature",
+        "niko_program",
+        "niko_demand"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 5,
+          "max": 30,
+          "step": 0.5
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/thermostat/assets/images/small.png",
+        "large": "/drivers/thermostat/assets/images/large.png",
+        "xlarge": "/drivers/thermostat/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "thermostat"
+    },
+    {
+      "name": {
+        "en": "Time Schedule",
+        "nl": "Tijdschema",
+        "da": "Tidsplan"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setable": false
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/time-schedule/assets/images/small.png",
+        "large": "/drivers/time-schedule/assets/images/large.png",
+        "xlarge": "/drivers/time-schedule/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "time-schedule"
+    },
+    {
+      "name": {
+        "en": "Velux Window",
+        "nl": "Velux Raam",
+        "da": "Velux vindue"
+      },
+      "class": "windowcoverings",
+      "capabilities": [
+        "windowcoverings_state"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/velux/assets/images/small.png",
+        "large": "/drivers/velux/assets/images/large.png",
+        "xlarge": "/drivers/velux/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "velux"
+    },
+    {
+      "name": {
+        "en": "Video Door Station",
+        "nl": "Videodeurstation",
+        "da": "Videodørstation"
+      },
+      "class": "doorbell",
+      "capabilities": [
+        "alarm_generic"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/video-door-station/assets/images/small.png",
+        "large": "/drivers/video-door-station/assets/images/large.png",
+        "xlarge": "/drivers/video-door-station/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "video-door-station"
     }
   ],
   "capabilities": {
@@ -558,6 +960,120 @@
       },
       "min": 0,
       "max": 365
+    },
+    "niko_demand": {
+      "type": "enum",
+      "title": {
+        "en": "Demand",
+        "nl": "Vraag",
+        "da": "Behov"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "values": [
+        {
+          "id": "Heating",
+          "title": {
+            "en": "Heating",
+            "nl": "Verwarmen",
+            "da": "Varmer"
+          }
+        },
+        {
+          "id": "Cooling",
+          "title": {
+            "en": "Cooling",
+            "nl": "Koelen",
+            "da": "Køler"
+          }
+        },
+        {
+          "id": "None",
+          "title": {
+            "en": "Idle",
+            "nl": "Inactief",
+            "da": "Hviler"
+          }
+        }
+      ]
+    },
+    "niko_program": {
+      "type": "enum",
+      "title": {
+        "en": "Program",
+        "nl": "Programma",
+        "da": "Program"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "Day",
+          "title": {
+            "en": "Day",
+            "nl": "Dag",
+            "da": "Dag"
+          }
+        },
+        {
+          "id": "Night",
+          "title": {
+            "en": "Night",
+            "nl": "Nacht",
+            "da": "Nat"
+          }
+        },
+        {
+          "id": "Eco",
+          "title": {
+            "en": "Eco",
+            "nl": "Eco",
+            "da": "Eco"
+          }
+        },
+        {
+          "id": "Off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "da": "Fra"
+          }
+        },
+        {
+          "id": "Cool",
+          "title": {
+            "en": "Cool",
+            "nl": "Koelen",
+            "da": "Køl"
+          }
+        },
+        {
+          "id": "Prog1",
+          "title": {
+            "en": "Program 1",
+            "nl": "Programma 1",
+            "da": "Program 1"
+          }
+        },
+        {
+          "id": "Prog2",
+          "title": {
+            "en": "Program 2",
+            "nl": "Programma 2",
+            "da": "Program 2"
+          }
+        },
+        {
+          "id": "Prog3",
+          "title": {
+            "en": "Program 3",
+            "nl": "Programma 3",
+            "da": "Program 3"
+          }
+        }
+      ]
     }
   },
   "discovery": {

@@ -20,9 +20,29 @@ export const NIKO_MODELS = [
   'overallcomfort',
   'fan',
   'comfort',
+  'velux',
+  'thermostat',
+  'condition',
+  'simulation',
+  'pir',
+  'alarms',
+  'timeschedule',
+  'audiocontrol',
+  'accesscontrol',
+  'robinsip',
 ] as const;
 
-export const NIKO_TYPES = ['relay', 'dimmer', 'motor', 'action', 'multisensor'] as const;
+export const NIKO_TYPES = [
+  'relay',
+  'dimmer',
+  'motor',
+  'action',
+  'multisensor',
+  'thermostat',
+  'virtual',
+  'energyhome',
+  'videodoorstation',
+] as const;
 
 export type NikoType = (typeof NIKO_TYPES)[number];
 export type NikoModel = (typeof NIKO_MODELS)[number];
@@ -47,6 +67,16 @@ export enum NikoDeviceKey {
   THERMO_SWITCH_X2 = 'THERMO_SWITCH_X2',
   THERMO_SWITCH_X4 = 'THERMO_SWITCH_X4',
   THERMO_SWITCH_X6 = 'THERMO_SWITCH_X6',
+  VELUX = 'VELUX',
+  THERMOSTAT = 'THERMOSTAT',
+  FLAG = 'FLAG',
+  BASIC_ACTION = 'BASIC_ACTION',
+  ALARM = 'ALARM',
+  TIME_SCHEDULE = 'TIME_SCHEDULE',
+  AUDIO = 'AUDIO',
+  ACCESS_CONTROL = 'ACCESS_CONTROL',
+  ENERGY_HOME = 'ENERGY_HOME',
+  VIDEO_DOOR_STATION = 'VIDEO_DOOR_STATION',
 }
 
 export const NIKO_ACTIONS = {
@@ -90,6 +120,46 @@ export const NIKO_ACTIONS = {
     types: 'multisensor',
     models: ['thermoswitchx6feedback'],
   },
+  [NikoDeviceKey.VELUX]: {
+    types: 'action',
+    models: ['velux'],
+  },
+  [NikoDeviceKey.THERMOSTAT]: {
+    types: 'thermostat',
+    models: ['thermostat'],
+  },
+  [NikoDeviceKey.FLAG]: {
+    types: 'virtual',
+    models: ['flag'],
+  },
+  [NikoDeviceKey.BASIC_ACTION]: {
+    types: 'action',
+    models: ['condition', 'generic', 'overallcomfort', 'simulation', 'pir'],
+  },
+  [NikoDeviceKey.ALARM]: {
+    types: 'action',
+    models: ['alarms'],
+  },
+  [NikoDeviceKey.TIME_SCHEDULE]: {
+    types: 'action',
+    models: ['timeschedule'],
+  },
+  [NikoDeviceKey.AUDIO]: {
+    types: 'action',
+    models: ['audiocontrol'],
+  },
+  [NikoDeviceKey.ACCESS_CONTROL]: {
+    types: 'action',
+    models: ['accesscontrol'],
+  },
+  [NikoDeviceKey.ENERGY_HOME]: {
+    types: 'energyhome',
+    models: ['generic'],
+  },
+  [NikoDeviceKey.VIDEO_DOOR_STATION]: {
+    types: 'videodoorstation',
+    models: ['robinsip'],
+  },
 } as const satisfies Record<NikoDeviceKey, BaseAction>;
 
 export interface NikoPayloadRegistry extends Record<NikoDeviceKey, { Properties: any }> {
@@ -119,6 +189,100 @@ export interface NikoPayloadRegistry extends Record<NikoDeviceKey, { Properties:
   [NikoDeviceKey.THERMO_SWITCH_X1]: {
     Properties: [{ AmbientTemperature: string }, { Humidity: string }];
   };
+  [NikoDeviceKey.VELUX]: {
+    Properties: [
+      { Action: 'Open' | 'Close' | 'Stop' },
+      { Feedback: 'BlinkOn' | 'BlinkOff' },
+      { AllConnected: NikoBoolean },
+    ];
+  };
+  [NikoDeviceKey.THERMOSTAT]: {
+    Properties: [
+      { Program: NikoThermostatProgram },
+      { OverruleActive: NikoBoolean },
+      { OverruleSetpoint: string },
+      { OverruleTime: string },
+      { EcoSave: NikoBoolean },
+      { SetpointTemperature: string },
+      { AmbientTemperature: string },
+      { Demand: 'Heating' | 'Cooling' | 'None' },
+    ];
+  };
+  [NikoDeviceKey.FLAG]: {
+    Properties: [{ Status: NikoBoolean }];
+  };
+  [NikoDeviceKey.BASIC_ACTION]: {
+    Properties: [
+      { BasicState: NikoTriggerable },
+      { StartActive: NikoBoolean },
+      { AllStarted: NikoBoolean },
+      { AllConnected: NikoBoolean },
+    ];
+  };
+  [NikoDeviceKey.ALARM]: {
+    Properties: [
+      { BasicState: NikoOnOff | 'Intermediate' | 'Triggered' },
+      { AllConnected: NikoBoolean },
+    ];
+  };
+  [NikoDeviceKey.TIME_SCHEDULE]: {
+    Properties: [{ Active: NikoBoolean }, { AllConnected: NikoBoolean }];
+  };
+  [NikoDeviceKey.AUDIO]: {
+    Properties: [
+      { Status: NikoOnOff },
+      { Playback: 'Paused' | 'Playing' | 'Buffering' },
+      { Volume: string },
+      { Muted: NikoBoolean },
+      { Shuffle: NikoBoolean },
+      { Repeat: NikoBoolean },
+      { SkipNext: NikoBoolean },
+      { SkipPrevious: NikoBoolean },
+      { Title: string },
+      { Artist: string },
+      { ArtworkUrl: string },
+    ];
+  };
+  [NikoDeviceKey.ACCESS_CONTROL]: {
+    Properties: [
+      { Doorlock: 'Open' | 'Closed' },
+      { CallPending: NikoBoolean },
+      { CallAnswered: NikoBoolean },
+    ];
+  };
+  [NikoDeviceKey.ENERGY_HOME]: {
+    Properties: [
+      { ElectricalPowerFromGrid: string },
+      { ElectricalPowerToGrid: string },
+      { ElectricalEnergyFromGrid: string },
+      { ElectricalEnergyToGrid: string },
+      { ElectricalEnergyProduction: string },
+      { ElectricalEnergyConsumption: string },
+      { ElectricalEnergySelfConsumption: string },
+      { GasVolume: string },
+      { WaterVolume: string },
+      { ReportInstantUsage: NikoBoolean },
+    ];
+  };
+  [NikoDeviceKey.VIDEO_DOOR_STATION]: {
+    Properties: [
+      { CallStatus01: 'Idle' | 'Ringing' | 'Active' },
+      { Status: 'Online' | 'Offline' },
+    ];
+  };
 }
+
+export const NIKO_THERMOSTAT_PROGRAMS = [
+  'Day',
+  'Night',
+  'Eco',
+  'Off',
+  'Cool',
+  'Prog1',
+  'Prog2',
+  'Prog3',
+] as const;
+
+export type NikoThermostatProgram = (typeof NIKO_THERMOSTAT_PROGRAMS)[number];
 
 export type AllNikoActions = (typeof NIKO_ACTIONS)[keyof typeof NIKO_ACTIONS];
