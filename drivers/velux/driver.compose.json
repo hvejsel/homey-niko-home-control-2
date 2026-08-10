@@ -1,7 +1,14 @@
 {
   "name": { "en": "Velux Window", "nl": "Velux Raam", "da": "Velux vindue" },
   "class": "windowcoverings",
-  "capabilities": ["windowcoverings_closed", "windowcoverings_state"],
+  "capabilities": ["onoff", "windowcoverings_state"],
+  "capabilitiesOptions": {
+    "onoff": {
+      "title": { "en": "Open", "nl": "Open", "da": "Åben" },
+      "insightsTitleTrue": { "en": "Opened", "da": "Åbnet" },
+      "insightsTitleFalse": { "en": "Closed", "da": "Lukket" }
+    }
+  },
   "platforms": ["local"],
   "connectivity": ["lan"],
   "images": {

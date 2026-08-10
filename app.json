@@ -878,9 +878,26 @@
       },
       "class": "windowcoverings",
       "capabilities": [
-        "windowcoverings_closed",
+        "onoff",
         "windowcoverings_state"
       ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "title": {
+            "en": "Open",
+            "nl": "Open",
+            "da": "Åben"
+          },
+          "insightsTitleTrue": {
+            "en": "Opened",
+            "da": "Åbnet"
+          },
+          "insightsTitleFalse": {
+            "en": "Closed",
+            "da": "Lukket"
+          }
+        }
+      },
       "platforms": [
         "local"
       ],
