@@ -878,6 +878,7 @@
       },
       "class": "windowcoverings",
       "capabilities": [
+        "windowcoverings_closed",
         "windowcoverings_state"
       ],
       "platforms": [

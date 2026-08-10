@@ -1,7 +1,7 @@
 {
   "name": { "en": "Velux Window", "nl": "Velux Raam", "da": "Velux vindue" },
   "class": "windowcoverings",
-  "capabilities": ["windowcoverings_state"],
+  "capabilities": ["windowcoverings_closed", "windowcoverings_state"],
   "platforms": ["local"],
   "connectivity": ["lan"],
   "images": {
